@@ -1,5 +1,10 @@
 <div class="landing-block">
     <h2>Welcome To Face Snapp App</h2>
+    <form #emailForm="ngForm" (ngSubmit)="onSubmit(emailForm)">
+        <label for="emailInput">Inscrivez vous pour recevoir notre newsLetter :</label>
+        <input id="emailInput" type="email" [(ngModel)]="userEmail" name="userEmail" />
+        <button type="submit">OK!</button>
+    </form>
     <img src="assets/my_snapface.png" title="face snap logo" />
 
     <p><button (click)="onContinue()">Continuer vers SnapFace</button></p>

@@ -1,0 +1,25 @@
+<div class="face-snap-card" [ngClass]="{snapped: faceSnap.snaps > 0}">
+    <h2>{{ faceSnap.title | titlecase }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
+    <p>
+        <button (click)="onViewFaceSnap()">VIEW</button>
+    </p>
+</div>
+
+<!-- <div class="face-snap-card" [ngClass]="{snapped: faceSnap.snaps > 0}">
+    <h2>{{ faceSnap.title | titlecase }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p>{{ faceSnap.description }}</p>
+    <p>
+        <button (click)="onAddSnap()">{{textSnap}}</button>
+        <span [ngStyle]="{ color: 'rgb(0, ' + (faceSnap.snaps * 1450) + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
+    </p>
+    <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
+    <p>{{ 4346234.36 | number: '1.0-0' }}</p>
+    <span>{{ 122422.467 | number }}</span>
+    <p>{{ 0.336 | percent }}</p>
+    <p>{{ 0.336 | percent: '1.0-1' }}</p>
+    <p>{{ 344.36 | currency: 'EUR' : 'ncn' }}</p>
+    <span>{{ "jungle is not safety" | titlecase }}</span>
+</div> -->

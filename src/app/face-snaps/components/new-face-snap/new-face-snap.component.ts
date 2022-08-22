@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
-import { FaceSnap } from '../models/face-snap.model';
+import { Router } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
+import { FaceSnap } from 'src/app/core/models/face-snap.model';
+import { FaceSnapsService } from 'src/app/core/services/face-snap.service';
 
 @Component({
   selector: 'app-new-face-snap',
@@ -14,7 +16,8 @@ export class NewFaceSnapComponent implements OnInit {
   faceSnapPreview$!: Observable<FaceSnap>;
   urlRegex!: RegExp;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private faceSnapsService: FaceSnapsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
@@ -39,7 +42,16 @@ export class NewFaceSnapComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    console.log(this.snapForm.value);
+    this.faceSnapsService.addFaceSnap({
+      ...this.snapForm.value,
+      id: 0,
+      snaps: 0,
+      createdDate: new Date()
+    }).pipe(
+      tap(faceSnap => {
+        this.router.navigateByUrl(`/facesnaps/${faceSnap.id}`);
+      })
+    ).subscribe();
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="face-snap-card" [ngClass]="{snapped: faceSnap.snaps > 0}">
     <h2>{{ faceSnap.title | titlecase }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'dd MMMM yyyy, à HH:mm' }}</p>
     <p>
         <button (click)="onViewFaceSnap()">VIEW</button>
     </p>

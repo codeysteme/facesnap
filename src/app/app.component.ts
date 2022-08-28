@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, of } from 'rxjs';
-import { concatMap, mergeMap, delay, exhaustMap, map, switchMap, take, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
